@@ -19,9 +19,11 @@ public class ProductsController : ControllerBase
     // GET: api/products
     // [TODO 1]: Return all products from database
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Product>>> GetProducts() {
+    public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+    {
         // [TODO 1]: here
-        throw new NotImplementedException();
+        var result = await _db.Products.ToListAsync();
+        return Ok(result);
     }
 
     // POST: api/products/purchase
